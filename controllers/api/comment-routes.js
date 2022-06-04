@@ -1,7 +1,8 @@
-const router = require('express').Router();
-const { Comment } = require('../../models/');
-const withAuth = require('../../utils/auth');
-//changed userId to user_id 
+const router = require("express").Router();
+const { Comment } = require("../../models");
+const withAuth = require("../../utils/auth");
+
+// GET all comments
 router.get("/", (req, res) => {
   Comment.findAll({})
     .then((dbCommentData) => res.json(dbCommentData))
@@ -11,7 +12,7 @@ router.get("/", (req, res) => {
     });
 });
 
-// GETS single comment
+// GET single comment
 router.get("/:id", async (req, res) => {
   try {
     const dbCommentData = await Comment.findAll({
@@ -24,7 +25,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// CREATES new comment
+// CREATE new comment
 router.post("/", withAuth, async (req, res) => {
   if (req.session) {
     try {
@@ -41,7 +42,7 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
-//UPDATES comment
+//UPDATE comment
 router.put("/:id", withAuth, async (req, res) => {
   try {
     const dbCommentData = await Comment.update(
@@ -63,7 +64,7 @@ router.put("/:id", withAuth, async (req, res) => {
   }
 });
 
-// DELETES comment
+// DELETE comment
 router.delete("/:id", async (req, res) => {
   try {
     const dbCommentData = await Comment.destroy({

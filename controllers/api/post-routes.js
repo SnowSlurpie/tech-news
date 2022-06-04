@@ -1,18 +1,24 @@
-const router = require('express').Router();
-const { Post } = require('../../models/');
-const withAuth = require('../../utils/auth');
-const sequelize = require("../../config/connection");
-//CREATES post
-router.post('/', withAuth, async (req, res) => {
-  const body = req.body;
+const router = require("express").Router();
+const { Post, User, Comment } = require("../../models");
+const sequelize = require("../../config/config");
+const withAuth = require("../../utils/auth");
+
+// CREATE new post
+router.post("/", withAuth, async (req, res) => {
   try {
-    const newPost = await Post.create({ ...body, userId: req.session.userId });
-    res.json(newPost);
+    const dbPostData = await Post.create({
+      title: req.body.title,
+      post_content: req.body.post_content,
+      user_id: req.session.user_id,
+    });
+    res.json(dbPostData);
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
-// UPDATES post
+
+// UPDATE post
 router.put("/:id", withAuth, async (req, res) => {
   try {
     const dbPostData = await Post.update(req.body, {
@@ -29,7 +35,7 @@ router.put("/:id", withAuth, async (req, res) => {
   }
 });
 
-// DELETES POST
+// DELETE POST
 router.delete("/:id", async (req, res) => {
   try {
     Post.destroy({

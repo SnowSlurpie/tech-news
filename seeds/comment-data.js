@@ -4,12 +4,12 @@ const commentData = [
   {
     user_id: 1,
     post_id: 2,
-    comment_text: "This is a very helpful tool!",
+    comment_text: "This has been a very helpful tool!",
   },
   {
     user_id: 2,
     post_id: 7,
-    comment_text: "Great application! I am able to easily see my team's schedule!",
+    comment_text: "Awesome work!",
   },
   {
     user_id: 3,
@@ -31,7 +31,7 @@ const commentData = [
     user_id: 6,
     post_id: 6,
     comment_text:
-      "Awesome work!",
+      "I use this tool to keep track of my team. Great application!",
   },
   {
     user_id: 7,

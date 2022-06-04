@@ -1,18 +1,27 @@
-<div class="card">
-  <div class="card-header">
-    <h2>Login</h2>
-  </div>
-  <form id="login-form" class="card-body">
-    <div>
-      <label for="username-input-login">Username</label>
-      <input type="text" id="username-input-login" />
-    </div>
-    <div>
-      <label for="password-input-login" class="form-label">Password</label>
-      <input type="password" id="password-input-login" />
-    </div>
-    <button type="submit" id="login-btn" class="btn">Login!</button>
-    <a type="button" href="/signup">Sign up!</a>
-  </form>
+<div class="card m-4">
+    <h2 class="card-header">Log in:</h2>
+
+    <form class="card-body login-form">
+        <div class=" row mb-3">
+
+            <label class="col-sm-2 col-form-label mb-3" for="username-login">Username:</label>
+            <div class="col-sm-10 mb-3">
+                <input class="form-control" type="text" placeholder="username" id="username-login" />
+            </div>
+
+            <label class="col-sm-2 col-form-label mb-3" for="password-login">Password:</label>
+            <div class="col-sm-10 mb-3">
+                <input class="form-control" type="password" placeholder="password" id="password-login" />
+            </div>
+
+            <div class="d-grid gap-2 d-md-block m-3">
+                <button type="submit" class="btn btn-primary m-2">Log in</button>
+                <button type="button" class="btn btn-info m-2"><a href="/signup">Sign up instead!</a></button>
+
+            </div>
+        </div>
+    </form>
+
 </div>
-<script src="/js/login.js"></script>
+
+<script src="/javascript/login.js"></script>

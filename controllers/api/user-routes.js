@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { User, Post, Comment } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-// creates new user
+// CREATE new user
 router.post("/",  async (req, res) => {
   try {
     const dbUserData = await User.create({
@@ -22,6 +22,7 @@ router.post("/",  async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 // User Login
 router.post("/login", async (req, res) => {
   try {
@@ -56,6 +57,7 @@ router.post("/login", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 // User logout
 router.post("/logout", (req, res) => {
   if (req.session.loggedIn) {
@@ -66,7 +68,8 @@ router.post("/logout", (req, res) => {
     res.status(404).end();
   }
 });
-// updates user
+
+// UPDATE user
 router.put("/:id", withAuth, async (req, res) => {
   try {
     const dbUserData = await User.update(req.body, {
@@ -85,7 +88,8 @@ router.put("/:id", withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-// Deletes user
+
+// Delete user
 router.delete("/:id", async (req, res) => {
   try {
     const dbUserData = await User.destroy({
