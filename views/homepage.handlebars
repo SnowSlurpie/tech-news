@@ -1,0 +1,18 @@
+<div>
+
+    {{#each posts }}
+    <article class="card m-3">
+        <h1 class="card-header">{{title}}</h1>
+        <section class="card-body">{{post_content}}</section>
+        <h4 class="card-text text-end p-2">
+            Posted on: {{format_date createdAt}}
+        </h4>
+        <div class="d-grid gap-2 d-md-block mb-3">
+            <button type="button" class="btn btn-primary m-2"><a href="/post/{{id}}">View Post</a></button>
+        </div>
+
+
+    </article>
+    {{/each}}
+
+</div>

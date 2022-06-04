@@ -1,6 +1,7 @@
 const router = require('express').Router();
-const { Post } = require('../models/');
+const { Post } = require('../models');
 const withAuth = require('../utils/auth');
+const sequelize = require("../config/connection");
 router.get('/', withAuth, async (req, res) => {
   try {
     const postData = await Post.findAll({
@@ -37,5 +38,9 @@ router.get('/edit/:id', withAuth, async (req, res) => {
   } catch (err) {
     res.redirect('login');
   }
+});
+
+router.get("/create", (req, res) => {
+  res.render("create-post");
 });
 module.exports = router;

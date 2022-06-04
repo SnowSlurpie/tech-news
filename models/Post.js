@@ -6,22 +6,17 @@ class Post extends Model {}
 
 Post.init(
   {
-    // define columns
     title: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
-    body: {
-      type: DataTypes.STRING,
-      allowNull: false
+    post_content: {
+      type: DataTypes.TEXT,
+      allowNull: false,
     },
   },
   {
     sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'post',
   }
 );
 

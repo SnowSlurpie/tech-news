@@ -1,0 +1,27 @@
+<div class="card m-3">
+    <h1 class="card-header">{{post.title}}</h1>
+    <section class="card-body">{{post.post_content}}</section>
+    <div class="card-text text-end p-2">
+        Posted by: {{username}} on {{format_date createdAt}}
+    </div>
+</div>
+
+{{#if loggedIn}}
+<div class="card m-2">
+    <h3 class="card-header"></h3>
+    <form class="card-body comment-form">
+
+        <label class="form-label">Add a comment:</label>
+        <input name="comment-body" class="form-control" rows="3" />
+
+        <button type="submit" class="btn btn-primary m-2">Submit</button>
+    </form>
+</div>
+{{> comments post.Comments}}
+{{/if}}
+
+
+
+{{#if loggedIn}}
+<script src="/javascript/comment.js"></script>
+{{/if}}

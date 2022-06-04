@@ -1,0 +1,20 @@
+<section>
+  <h2 class="m-2">Your Posts:</h2>
+
+  {{#each posts}}
+  <div class="card m-3">
+    <h1 class="card-header">{{title}}</h1>
+    <section class="card-text m-2">{{post_content}}</section>
+    <div class="d-grid gap-2 d-md-block m-3">
+      <a href="/dashboard/edit/{{id}}" class="btn btn-primary text-end p-2">Edit Post</a>
+    </div>
+  </div>
+  {{/each}}
+
+</section>
+
+<div class="d-grid gap-2 d-md-block mb-3">
+  <button type="button" class="btn btn-primary m-2"><a href="/dashboard/create">Add a new post!</a></button>
+</div>
+
+<script src="/javascript/create-post.js"></script>
