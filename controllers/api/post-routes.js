@@ -1,6 +1,5 @@
 const router = require("express").Router();
-const { Post, User, Comment } = require("../../models");
-const sequelize = require("../../config/config");
+const { Post } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 // CREATE new post
@@ -38,7 +37,7 @@ router.put("/:id", withAuth, async (req, res) => {
 // DELETE POST
 router.delete("/:id", async (req, res) => {
   try {
-    Post.destroy({
+    const dbPostData = await Post.destroy({
       where: { id: req.params.id },
     });
     if (!dbPostData) {
